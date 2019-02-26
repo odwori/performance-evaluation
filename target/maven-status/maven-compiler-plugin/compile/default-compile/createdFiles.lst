@@ -1,0 +1,5 @@
+com\muhiza\config\AppConfig.class
+com\muhiza\model\Book.class
+com\muhiza\config\WebappConfigInitializer.class
+com\muhiza\config\WebConfig.class
+com\muhiza\model\Employee.class
