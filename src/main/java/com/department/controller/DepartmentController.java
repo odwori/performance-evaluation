@@ -41,7 +41,7 @@ public class DepartmentController {
     }
 
     @PutMapping(path = "/{title}")
-    public Department update(@PathVariable("title") String username, @RequestBody Department department) throws BadHttpRequest {
+    public Department update(@PathVariable("title") String title, @RequestBody Department department) throws BadHttpRequest {
         if (repository.exists(title)) {
             department.setTitle(title);
             return repository.save(department);
