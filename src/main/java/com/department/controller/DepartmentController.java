@@ -26,7 +26,7 @@ public class DepartmentController {
     }
 
     @GetMapping(path = "/{title}")
-    public Department find(@PathVariable("title") String username) {
+    public Department find(@PathVariable("title") String title) {
         return repository.findOne(title);
     }
 
@@ -40,8 +40,8 @@ public class DepartmentController {
         repository.delete(title);
     }
 
-    @PutMapping(path = "/{username}")
-    public Department update(@PathVariable("username") String username, @RequestBody Department department) throws BadHttpRequest {
+    @PutMapping(path = "/{title}")
+    public Department update(@PathVariable("title") String username, @RequestBody Department department) throws BadHttpRequest {
         if (repository.exists(title)) {
             department.setTitle(title);
             return repository.save(department);
