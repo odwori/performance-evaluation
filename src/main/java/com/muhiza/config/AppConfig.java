@@ -20,10 +20,10 @@ import static org.hibernate.cfg.Environment.*;
 @EnableTransactionManagement
 @ComponentScans(value = {
 		// @ComponentScan("com.muhoza.config"),
-		@ComponentScan("com.muhoza.dao"),
+		@ComponentScan("com.muhiza.dao"),
 		// @ComponentScan("com.muhoza.controller"),
 		// @ComponentScan("com.muhoza.model"),
-		@ComponentScan("com.muhoza.services")
+		@ComponentScan("com.muhiza.services")
 
 })
 public class AppConfig {
@@ -34,7 +34,7 @@ public class AppConfig {
 	public LocalSessionFactoryBean getSessionFactory() {
 		LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
 		Properties props = new Properties();
-		// seting jdbc properties
+		// setting jdbc properties
 		props.put(DRIVER, env.getProperty("mysql.driver"));
 		props.put(URL, env.getProperty("mysql.url"));
 		props.put(USER, env.getProperty("mysql.user"));
@@ -46,11 +46,11 @@ public class AppConfig {
 		props.put(HBM2DDL_AUTO, env.getProperty("hibernate.hbm2ddl.auto"));
 
 		// setting c3p0 properties
-		props.put(C3P0_MIN_SIZE, env.getProperty("hibernate.c3p0.min_side"));
-		props.put(C3P0_MAX_SIZE, env.getProperty("hibernate.c3p0.max_side"));
+		props.put(C3P0_MIN_SIZE, env.getProperty("hibernate.c3p0.min_size"));
+		props.put(C3P0_MAX_SIZE, env.getProperty("hibernate.c3p0.max_size"));
 		props.put(C3P0_ACQUIRE_INCREMENT, env.getProperty("hibernate.c3p0.acquire_increment"));
 		props.put(C3P0_TIMEOUT, env.getProperty("hibernate.c3p0.timeout"));
-		props.put(C3P0_MIN_SIZE, env.getProperty("hibernate.c3p0.min_side"));
+		//props.put(C3P0_MIN_SIZE, env.getProperty("hibernate.c3p0.min_side"));
 		props.put(C3P0_MAX_STATEMENTS, env.getProperty("hibernate.c3p0.max_statements"));
 		
 		factoryBean.setHibernateProperties(props);
