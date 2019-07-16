@@ -1,5 +1,6 @@
 package com.muhiza.config;
 
+import com.muhiza.config.*;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebappConfigInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
