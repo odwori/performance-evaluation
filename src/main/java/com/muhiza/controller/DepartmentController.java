@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,17 +40,25 @@ public class DepartmentController {
 		return ResponseEntity.ok().body("Department created with id:"+id); 
 	}
 	
-	//get a single record
+	//get a single department record
 	@GetMapping("/api/departments/{id}")
 	public ResponseEntity<Department> get(@PathVariable("id") long id){
 		Department department = departmentService.get(id);
 		return ResponseEntity.ok().body(department);
 	}
 	
+	//update department record
 	@PutMapping("/api/departments/{id}")
 	public ResponseEntity<?> update(@PathVariable("id") long id,@RequestBody Department department){
 		departmentService.update(id, department); 
 		return ResponseEntity.ok().body("Department has been updated");
+	}
+	
+	@DeleteMapping("/api/departments/{id}")
+	public ResponseEntity<?> delete(@PathVariable("id") long id){
+		departmentService.delete(id);
+		return ResponseEntity.ok().body("Department has been deleted");
+		
 	}
 	
 }

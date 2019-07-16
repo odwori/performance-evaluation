@@ -38,8 +38,9 @@ public class DepartmentServiceImpl implements DepartmentService {
 	}
 
 	@Override
+	@Transactional
 	public void delete(long id) {
-		// TODO Auto-generated method stub
+		departmentDAO.delete(id);
 		
 	}
 

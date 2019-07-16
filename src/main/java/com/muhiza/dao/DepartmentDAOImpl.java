@@ -44,8 +44,10 @@ public class DepartmentDAOImpl implements DepartmentDAO {
 
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
 		
+		Session session = sessionFactory.getCurrentSession();
+		Department department = session.byId(Department.class).load(id);
+		session.delete(department);
 	}
 
 }
