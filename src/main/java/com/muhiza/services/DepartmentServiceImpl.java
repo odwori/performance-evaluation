@@ -15,11 +15,11 @@ public class DepartmentServiceImpl implements DepartmentService {
 	
 	@Override
 	public long save(Department department) {
-		// TODO Auto-generated method stub
-		return 0;
+		return departmentDAO.save(department);
 	}
 
 	@Override
+	@Transactional
 	public Department get(long id) {
 		// TODO Auto-generated method stub
 		return null;

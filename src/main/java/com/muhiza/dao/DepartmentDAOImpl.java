@@ -16,8 +16,8 @@ public class DepartmentDAOImpl implements DepartmentDAO {
 	
 	@Override
 	public long save(Department department) {
-		// TODO Auto-generated method stub
-		return 0;
+		sessionFactory.getCurrentSession().save(department);
+		return department.getId();
 	}
 
 	@Override
