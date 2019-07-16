@@ -2,6 +2,7 @@ package com.muhiza.dao;
 
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -34,8 +35,11 @@ public class DepartmentDAOImpl implements DepartmentDAO {
 
 	@Override
 	public void update(long id, Department department) {
-		// TODO Auto-generated method stub
-		
+		Session session = sessionFactory.getCurrentSession();
+		Department oldDepartment = session.byId(Department.class).load(id);
+		oldDepartment.setDepartment_name(department.getDepartment_name());
+		oldDepartment.setDepartment_description(department.getDepartment_description());
+		session.flush();
 	}
 
 	@Override
