@@ -21,8 +21,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 	@Override
 	@Transactional
 	public Department get(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return departmentDAO.get(id);
 	}
 
 	@Override
